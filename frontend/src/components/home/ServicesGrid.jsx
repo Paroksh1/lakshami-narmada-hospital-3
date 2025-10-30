@@ -207,10 +207,10 @@ const ServicesGrid = () => {
                   <button
                     key={index}
                     onClick={() => setActiveService(index)}
-                    className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                    className={`w-2 h-2 rounded-full ${
                       index === activeService 
                         ? 'bg-primary w-6' 
-                        : 'bg-muted-foreground/30 hover:bg-muted-foreground/50'
+                        : 'bg-muted-foreground/30'
                     }`}
                   />
                 ))}
