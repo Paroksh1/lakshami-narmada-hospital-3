@@ -5,15 +5,9 @@ import {
   Heart, 
   Brain, 
   Stethoscope, 
-  Eye, 
   Shield, 
   Baby, 
-  Syringe, 
-  Thermometer,
   Activity,
-  Bone,
-  Wind,
-  Zap,
   ArrowRight,
   Plus
 } from 'lucide-react';
