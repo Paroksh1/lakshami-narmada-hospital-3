@@ -78,76 +78,8 @@ const HomePage = () => {
       {/* Founder Section */}
       <FounderSection />
       
-      {/* Impact Metrics */}
-      <ImpactMetrics />
-      
       {/* Testimonials */}
       <TestimonialsSection />
-      
-      {/* Knowledge Hub Highlights */}
-      <section className="section-padding bg-muted/30">
-        <div className="container mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
-              Knowledge Hub Highlights
-            </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Expert-backed articles, videos, and guides to help you make informed decisions about your child's health.
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-            {knowledgeHighlights.map((item, index) => {
-              const Icon = item.icon;
-              return (
-                <Card key={index} className="card-service group cursor-pointer">
-                  <div className="flex flex-col h-full">
-                    <div className="flex items-start justify-between mb-4">
-                      <div className="p-3 rounded-lg bg-trust text-trust-foreground">
-                        <Icon className="h-6 w-6" />
-                      </div>
-                      <Badge variant="outline" className="text-xs">
-                        {item.type}
-                      </Badge>
-                    </div>
-                    
-                    <div className="flex-1">
-                      <h3 className="text-lg font-semibold text-foreground mb-2 group-hover:text-primary transition-colors">
-                        {item.title}
-                      </h3>
-                      <p className="text-sm text-muted-foreground leading-relaxed">
-                        {item.summary}
-                      </p>
-                    </div>
-                    
-                    <div className="mt-4">
-                      <EnhancedButton 
-                        variant="ghost" 
-                        size="sm" 
-                        className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-all"
-                        asChild
-                      >
-                        <Link to={item.href} className="flex items-center justify-center gap-2">
-                          Read More
-                          <ArrowRight className="h-3 w-3" />
-                        </Link>
-                      </EnhancedButton>
-                    </div>
-                  </div>
-                </Card>
-              );
-            })}
-          </div>
-          
-          <div className="text-center">
-            <EnhancedButton variant="outline" size="lg" asChild>
-              <Link to="/knowledge-hub">
-                Explore Knowledge Hub
-              </Link>
-            </EnhancedButton>
-          </div>
-        </div>
-      </section>
       
       {/* Locations */}
       <section className="section-padding">
