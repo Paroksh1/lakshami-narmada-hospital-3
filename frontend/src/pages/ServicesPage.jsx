@@ -245,84 +245,132 @@ const ServicesPage = () => {
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {/* Revolutionary Services Layout */}
+          <div className="space-y-8">
             {filteredServices.map((service, index) => {
               const Icon = service.icon;
+              const isEven = index % 2 === 0;
+              
               return (
-                <Card key={index} className="card-service group cursor-pointer h-full">
-                  <div className="flex flex-col h-full">
-                    {/* Header */}
-                    <div className="flex items-start justify-between mb-4">
-                      <div className={`p-3 rounded-lg ${
-                        service.emergency 
-                          ? 'bg-accent text-accent-foreground' 
-                          : service.featured
-                          ? 'bg-primary text-primary-foreground'
-                          : 'bg-secondary text-secondary-foreground'
-                      }`}>
-                        <Icon className="h-6 w-6" />
-                      </div>
-                      <div className="flex flex-col gap-1">
-                        {service.featured && (
-                          <Badge variant="secondary" className="text-xs">
-                            Featured
-                          </Badge>
-                        )}
-                        {service.popular && (
-                          <Badge variant="outline" className="text-xs">
-                            Popular
-                          </Badge>
-                        )}
-                        {service.emergency && (
-                          <Badge className="bg-accent text-accent-foreground text-xs">
-                            24×7
-                          </Badge>
-                        )}
-                      </div>
-                    </div>
+                <div key={index} className={`group relative overflow-hidden rounded-3xl bg-gradient-to-br ${
+                  service.emergency 
+                    ? 'from-accent/10 via-background to-accent/5 border-2 border-accent/20' 
+                    : service.featured
+                    ? 'from-primary/10 via-background to-primary/5 border-2 border-primary/20'
+                    : 'from-muted/50 via-background to-muted/20 border border-border/50'
+                } hover:shadow-2xl transition-all duration-500 hover:scale-[1.02] cursor-pointer`}
+                onClick={() => window.location.href = service.href}>
+                  
+                  {/* Background Pattern */}
+                  <div className="absolute inset-0 opacity-5">
+                    <div className={`absolute ${isEven ? 'top-0 right-0' : 'bottom-0 left-0'} w-64 h-64 rounded-full blur-3xl ${
+                      service.emergency ? 'bg-accent' : service.featured ? 'bg-primary' : 'bg-secondary'
+                    }`}></div>
+                  </div>
+                  
+                  <div className={`grid lg:grid-cols-12 gap-8 p-8 lg:p-12 items-center ${
+                    isEven ? '' : 'lg:grid-flow-col-dense'
+                  }`}>
                     
-                    {/* Content */}
-                    <div className="flex-1">
-                      <h3 className="text-lg font-semibold text-foreground mb-2 group-hover:text-primary transition-colors">
-                        {service.title}
-                      </h3>
-                      <p className="text-sm text-muted-foreground leading-relaxed mb-4">
-                        {service.description}
-                      </p>
-                      
-                      {/* Conditions */}
-                      <div className="space-y-2">
-                        <p className="text-xs font-medium text-foreground">Common Conditions:</p>
-                        <div className="flex flex-wrap gap-1">
-                          {service.conditions.slice(0, 3).map((condition, i) => (
-                            <Badge key={i} variant="outline" className="text-xs">
-                              {condition}
-                            </Badge>
-                          ))}
-                          {service.conditions.length > 3 && (
-                            <Badge variant="outline" className="text-xs">
-                              +{service.conditions.length - 3} more
-                            </Badge>
+                    {/* Icon & Visual Side */}
+                    <div className={`lg:col-span-4 ${isEven ? '' : 'lg:col-start-9'}`}>
+                      <div className="relative">
+                        {/* Main Icon */}
+                        <div className={`w-32 h-32 rounded-3xl flex items-center justify-center mb-6 ${
+                          service.emergency 
+                            ? 'bg-gradient-to-br from-accent to-accent/80 text-accent-foreground' 
+                            : service.featured
+                            ? 'bg-gradient-to-br from-primary to-primary/80 text-primary-foreground'
+                            : 'bg-gradient-to-br from-secondary to-secondary/80 text-secondary-foreground'
+                        } group-hover:scale-110 transition-transform duration-500 shadow-lg`}>
+                          <Icon className="h-16 w-16" />
+                        </div>
+                        
+                        {/* Badges */}
+                        <div className="flex flex-wrap gap-2">
+                          {service.featured && (
+                            <div className="px-3 py-1 rounded-full bg-primary text-primary-foreground text-xs font-medium">
+                              Featured Service
+                            </div>
+                          )}
+                          {service.popular && (
+                            <div className="px-3 py-1 rounded-full bg-secondary text-secondary-foreground text-xs font-medium">
+                              Most Popular
+                            </div>
+                          )}
+                          {service.emergency && (
+                            <div className="px-3 py-1 rounded-full bg-accent text-accent-foreground text-xs font-medium animate-pulse">
+                              24×7 Available
+                            </div>
                           )}
                         </div>
                       </div>
                     </div>
                     
-                    {/* CTA */}
-                    <div className="mt-6">
-                      <EnhancedButton 
-                        variant="primary" 
-                        size="sm" 
-                        className="w-full" 
-                        asChild
-                      >
-                        <Link to={service.href}>
-                          Learn More & Book
-                        </Link>
-                      </EnhancedButton>
+                    {/* Content Side */}
+                    <div className={`lg:col-span-8 ${isEven ? '' : 'lg:col-start-1 lg:row-start-1'}`}>
+                      <div className="space-y-6">
+                        {/* Title & Description */}
+                        <div className="space-y-4">
+                          <h3 className="text-3xl lg:text-4xl font-bold text-foreground group-hover:text-primary transition-colors duration-300">
+                            {service.title}
+                          </h3>
+                          <p className="text-lg text-muted-foreground leading-relaxed">
+                            {service.description}
+                          </p>
+                        </div>
+                        
+                        {/* Conditions Grid */}
+                        <div className="space-y-3">
+                          <h4 className="text-sm font-semibold text-foreground uppercase tracking-wide">
+                            Common Conditions We Treat
+                          </h4>
+                          <div className="grid grid-cols-2 lg:grid-cols-3 gap-3">
+                            {service.conditions.slice(0, 6).map((condition, i) => (
+                              <div key={i} className="flex items-center gap-2 text-sm text-muted-foreground">
+                                <div className="w-2 h-2 rounded-full bg-primary"></div>
+                                {condition}
+                              </div>
+                            ))}
+                            {service.conditions.length > 6 && (
+                              <div className="flex items-center gap-2 text-sm font-medium text-primary">
+                                <div className="w-2 h-2 rounded-full bg-primary"></div>
+                                +{service.conditions.length - 6} more conditions
+                              </div>
+                            )}
+                          </div>
+                        </div>
+                        
+                        {/* Action Buttons */}
+                        <div className="flex flex-col sm:flex-row gap-4 pt-4">
+                          <EnhancedButton 
+                            size="lg" 
+                            className="group/btn"
+                            asChild
+                          >
+                            <Link to={service.href} className="flex items-center gap-3">
+                              Learn More & Book Consultation
+                              <Icon className="h-5 w-5 group-hover/btn:translate-x-1 transition-transform" />
+                            </Link>
+                          </EnhancedButton>
+                          
+                          {service.emergency && (
+                            <EnhancedButton 
+                              variant="emergency" 
+                              size="lg"
+                              asChild
+                            >
+                              <a href="tel:+91" className="flex items-center gap-3">
+                                <Phone className="h-5 w-5" />
+                                Call Emergency Now
+                              </a>
+                            </EnhancedButton>
+                          )}
+                        </div>
+                      </div>
                     </div>
                   </div>
-                </Card>
+                </div>
               );
             })}
           </div>
