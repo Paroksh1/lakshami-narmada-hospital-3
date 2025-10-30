@@ -80,7 +80,7 @@ const ServicesGrid = () => {
     {
       title: 'Pulmonology',
       description: 'Respiratory and lung care including asthma management',
-      icon: Lungs,
+      icon: Wind,
       href: '/services/pediatric-pulmonology'
     },
     {
