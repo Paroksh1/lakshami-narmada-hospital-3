@@ -147,7 +147,7 @@ const ServicesGrid = () => {
                       }`}
                       onClick={() => setActiveService(index)}
                     >
-                      <div className={`relative overflow-hidden rounded-3xl p-6 transition-all duration-700 ${
+                      <div className={`relative overflow-hidden rounded-3xl p-6 ${
                         isActive 
                           ? 'bg-gradient-to-r shadow-2xl shadow-primary/25' 
                           : 'bg-muted/50'
