@@ -7,7 +7,7 @@ import { Input } from '@/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { 
   Heart, Brain, Stethoscope, Eye, Shield, Baby, Syringe, 
-  Thermometer, Activity, Bone, Wind, Zap, Search, Filter, Phone
+  Thermometer, Activity, Bone, Wind, Zap, Search, Filter, Phone, ArrowRight
 } from 'lucide-react';
 
 const ServicesPage = () => {
