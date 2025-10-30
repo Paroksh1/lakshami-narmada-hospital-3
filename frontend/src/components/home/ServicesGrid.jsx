@@ -86,15 +86,6 @@ const ServicesGrid = () => {
     }
   ];
   
-  const additionalServices = [
-    { title: 'Pediatric Ophthalmology', icon: Eye },
-    { title: 'Vaccination Services', icon: Syringe },
-    { title: 'Orthopedic Care', icon: Bone },
-    { title: 'Pulmonology', icon: Wind },
-    { title: 'Pediatric ICU', icon: Zap },
-    { title: 'Fever Clinic', icon: Thermometer }
-  ];
-  
   return (
     <section className="section-padding overflow-hidden">
       <div className="container mx-auto">
