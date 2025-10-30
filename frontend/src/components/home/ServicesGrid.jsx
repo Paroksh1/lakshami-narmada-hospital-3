@@ -1,8 +1,6 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Card } from '@/components/ui/card';
 import { EnhancedButton } from '@/components/ui/enhanced-button';
-import { Badge } from '@/components/ui/badge';
 import { 
   Heart, 
   Brain, 
@@ -15,178 +13,256 @@ import {
   Activity,
   Bone,
   Wind,
-  Zap
+  Zap,
+  ArrowRight,
+  Plus
 } from 'lucide-react';
 
 const ServicesGrid = () => {
-  const services = [
+  const [activeService, setActiveService] = useState(0);
+  const [isVisible, setIsVisible] = useState(false);
+  
+  useEffect(() => {
+    setIsVisible(true);
+    const interval = setInterval(() => {
+      setActiveService((prev) => (prev + 1) % 6); // Cycle through first 6 services
+    }, 4000);
+    return () => clearInterval(interval);
+  }, []);
+  
+  const specialties = [
+    { title: 'Specialties', icon: Heart, count: '12+' },
+    { title: 'Procedures', icon: Activity, count: '50+' }
+  ];
+  
+  const mainServices = [
     {
       title: 'Pediatric Cardiology',
-      description: 'Expert heart care for children from birth to adolescence',
+      description: 'Advanced heart care from congenital conditions to complex interventions',
       icon: Heart,
       href: '/services/pediatric-cardiology',
-      featured: true
+      stats: '200+ surgeries',
+      color: 'from-red-500 to-pink-500'
     },
     {
-      title: 'Pediatric Neurology',
-      description: 'Specialized neurological care and development support',
+      title: 'Pediatric Neurology', 
+      description: 'Comprehensive brain and nervous system care for developing minds',
       icon: Brain,
-      href: '/services/pediatric-neurology'
+      href: '/services/pediatric-neurology',
+      stats: '500+ patients',
+      color: 'from-purple-500 to-indigo-500'
     },
     {
-      title: 'General Pediatrics',
-      description: 'Comprehensive primary care for children of all ages',
-      icon: Stethoscope,
-      href: '/services/general-pediatrics',
-      popular: true
-    },
-    {
-      title: 'Pediatric Ophthalmology',
-      description: 'Specialized eye care and vision correction for children',
-      icon: Eye,
-      href: '/services/pediatric-ophthalmology'
-    },
-    {
-      title: '24×7 Emergency Care',
-      description: 'Round-the-clock emergency medical services',
+      title: 'Emergency Care',
+      description: 'Round-the-clock critical care with specialized pediatric protocols',
       icon: Shield,
       href: '/services/emergency-care',
-      emergency: true
+      stats: '24×7 available',
+      color: 'from-red-600 to-orange-500'
     },
     {
-      title: 'Neonatal Care',
-      description: 'Specialized care for newborns and premature babies',
+      title: 'Neonatal ICU',
+      description: 'Life-saving care for premature babies and critical newborns',
       icon: Baby,
-      href: '/services/neonatal-care'
-    },
-    {
-      title: 'Vaccination Services',
-      description: 'Complete immunization programs and vaccine schedules',
-      icon: Syringe,
-      href: '/services/vaccination'
+      href: '/services/neonatal-care', 
+      stats: '95% success rate',
+      color: 'from-green-500 to-teal-500'
     },
     {
       title: 'Pediatric Surgery',
-      description: 'Minimally invasive surgical procedures for children',
+      description: 'Minimally invasive procedures with faster recovery times',
       icon: Activity,
-      href: '/services/pediatric-surgery'
+      href: '/services/pediatric-surgery',
+      stats: '300+ procedures',
+      color: 'from-blue-500 to-cyan-500'
     },
     {
-      title: 'Orthopedic Care',
-      description: 'Bone, joint, and musculoskeletal care for growing children',
-      icon: Bone,
-      href: '/services/pediatric-orthopedics'
-    },
-    {
-      title: 'Pulmonology',
-      description: 'Respiratory and lung care including asthma management',
-      icon: Wind,
-      href: '/services/pediatric-pulmonology'
-    },
-    {
-      title: 'Pediatric ICU',
-      description: 'Critical care for seriously ill children',
-      icon: Zap,
-      href: '/services/pediatric-icu'
-    },
-    {
-      title: 'Fever Clinic',
-      description: 'Dedicated fever management and infection control',
-      icon: Thermometer,
-      href: '/services/fever-clinic'
+      title: 'General Pediatrics',
+      description: 'Comprehensive primary care from infancy through adolescence',
+      icon: Stethoscope,
+      href: '/services/general-pediatrics',
+      stats: '1000+ families',
+      color: 'from-emerald-500 to-green-500'
     }
   ];
   
+  const additionalServices = [
+    { title: 'Pediatric Ophthalmology', icon: Eye },
+    { title: 'Vaccination Services', icon: Syringe },
+    { title: 'Orthopedic Care', icon: Bone },
+    { title: 'Pulmonology', icon: Wind },
+    { title: 'Pediatric ICU', icon: Zap },
+    { title: 'Fever Clinic', icon: Thermometer }
+  ];
+  
   return (
-    <section className="section-padding">
+    <section className="section-padding overflow-hidden">
       <div className="container mx-auto">
-        {/* Section Header */}
-        <div className="text-center mb-12">
-          <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
-            Comprehensive Pediatric Services
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            From routine check-ups to specialized care, we provide complete healthcare solutions for children at every stage of their development.
-          </p>
+        {/* Revolutionary Header Design */}
+        <div className="relative mb-20">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            {/* Left Side - Content */}
+            <div className={`space-y-8 ${isVisible ? 'animate-fade-in' : 'opacity-0'}`}>
+              <div className="space-y-4">
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium">
+                  <Plus className="h-4 w-4" />
+                  Comprehensive Care
+                </div>
+                <h2 className="text-5xl lg:text-6xl font-bold text-foreground leading-tight">
+                  Pediatric
+                  <span className="block bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+                    Excellence
+                  </span>
+                </h2>
+                <p className="text-xl text-muted-foreground leading-relaxed max-w-lg">
+                  From routine check-ups to life-saving procedures, we provide world-class healthcare solutions for children at every stage of development.
+                </p>
+              </div>
+              
+              {/* Specialties Overview */}
+              <div className="flex gap-8">
+                {specialties.map((specialty, index) => {
+                  const Icon = specialty.icon;
+                  return (
+                    <div key={index} className="flex items-center gap-3">
+                      <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center">
+                        <Icon className="h-6 w-6 text-primary" />
+                      </div>
+                      <div>
+                        <div className="text-2xl font-bold text-foreground">{specialty.count}</div>
+                        <div className="text-sm text-muted-foreground">{specialty.title}</div>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+              
+              <EnhancedButton size="xl" className="group" asChild>
+                <Link to="/services" className="inline-flex items-center gap-3">
+                  View All Services
+                  <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                </Link>
+              </EnhancedButton>
+            </div>
+            
+            {/* Right Side - Interactive Service Showcase */}
+            <div className="relative">
+              <div className="space-y-4">
+                {mainServices.map((service, index) => {
+                  const Icon = service.icon;
+                  const isActive = index === activeService;
+                  
+                  return (
+                    <div
+                      key={index}
+                      className={`relative group cursor-pointer transition-all duration-700 ${
+                        isActive 
+                          ? 'scale-105 z-10' 
+                          : 'scale-95 opacity-70 hover:opacity-90 hover:scale-100'
+                      }`}
+                      onClick={() => setActiveService(index)}
+                      onMouseEnter={() => setActiveService(index)}
+                    >
+                      <div className={`relative overflow-hidden rounded-3xl p-6 transition-all duration-700 ${
+                        isActive 
+                          ? 'bg-gradient-to-r shadow-2xl shadow-primary/25' 
+                          : 'bg-muted/50 hover:bg-muted/70'
+                      }`} 
+                      style={isActive ? { backgroundImage: `linear-gradient(135deg, hsl(var(--primary)), hsl(var(--secondary)))` } : {}}>
+                        
+                        {/* Animated Background Pattern */}
+                        {isActive && (
+                          <div className="absolute inset-0 opacity-10">
+                            <div className="absolute top-0 right-0 w-32 h-32 rounded-full bg-white/20 -translate-y-16 translate-x-16"></div>
+                            <div className="absolute bottom-0 left-0 w-24 h-24 rounded-full bg-white/10 translate-y-12 -translate-x-12"></div>
+                          </div>
+                        )}
+                        
+                        <div className="relative flex items-center gap-4">
+                          <div className={`w-16 h-16 rounded-2xl flex items-center justify-center transition-all duration-500 ${
+                            isActive 
+                              ? 'bg-white/20 text-white scale-110' 
+                              : 'bg-primary/10 text-primary'
+                          }`}>
+                            <Icon className="h-8 w-8" />
+                          </div>
+                          
+                          <div className="flex-1">
+                            <h3 className={`text-xl font-bold mb-1 transition-colors duration-500 ${
+                              isActive ? 'text-white' : 'text-foreground'
+                            }`}>
+                              {service.title}
+                            </h3>
+                            <p className={`text-sm mb-2 transition-colors duration-500 ${
+                              isActive ? 'text-white/90' : 'text-muted-foreground'
+                            }`}>
+                              {service.description}
+                            </p>
+                            <div className={`text-xs font-medium transition-colors duration-500 ${
+                              isActive ? 'text-white/80' : 'text-primary'
+                            }`}>
+                              {service.stats}
+                            </div>
+                          </div>
+                          
+                          <div className={`transition-all duration-500 ${
+                            isActive ? 'translate-x-0 opacity-100' : 'translate-x-4 opacity-0'
+                          }`}>
+                            <ArrowRight className="h-5 w-5 text-white" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+              
+              {/* Service Navigation Dots */}
+              <div className="flex justify-center gap-2 mt-6">
+                {mainServices.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setActiveService(index)}
+                    className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                      index === activeService 
+                        ? 'bg-primary w-6' 
+                        : 'bg-muted-foreground/30 hover:bg-muted-foreground/50'
+                    }`}
+                  />
+                ))}
+              </div>
+            </div>
+          </div>
         </div>
         
-        {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          {services.map((service, index) => {
-            const Icon = service.icon;
-            return (
-              <Card 
-                key={index} 
-                className="card-service group cursor-pointer"
-                onClick={() => window.location.href = service.href}
-              >
-                <div className="flex flex-col h-full">
-                  {/* Header with Icon and Badges */}
-                  <div className="flex items-start justify-between mb-4">
-                    <div className={`p-3 rounded-lg ${
-                      service.emergency 
-                        ? 'bg-accent text-accent-foreground' 
-                        : service.featured
-                        ? 'bg-primary text-primary-foreground'
-                        : 'bg-secondary text-secondary-foreground'
-                    }`}>
-                      <Icon className="h-6 w-6" />
+        {/* Additional Services Showcase */}
+        <div className="border-t border-border pt-16">
+          <div className="text-center mb-12">
+            <h3 className="text-2xl font-bold text-foreground mb-4">
+              Complete Range of Specialties
+            </h3>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Beyond our core services, we offer comprehensive care across all pediatric specialties
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+            {additionalServices.map((service, index) => {
+              const Icon = service.icon;
+              return (
+                <div key={index} className="group">
+                  <div className="flex flex-col items-center gap-3 p-6 rounded-2xl border border-border/50 hover:border-primary/50 hover:bg-primary/5 transition-all duration-300 cursor-pointer">
+                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary/10 to-secondary/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                      <Icon className="h-6 w-6 text-primary" />
                     </div>
-                    <div className="flex flex-col gap-1">
-                      {service.featured && (
-                        <Badge variant="secondary" className="text-xs">
-                          Featured
-                        </Badge>
-                      )}
-                      {service.popular && (
-                        <Badge variant="outline" className="text-xs">
-                          Popular
-                        </Badge>
-                      )}
-                      {service.emergency && (
-                        <Badge className="bg-accent text-accent-foreground text-xs">
-                          24×7
-                        </Badge>
-                      )}
-                    </div>
-                  </div>
-                  
-                  {/* Content */}
-                  <div className="flex-1">
-                    <h3 className="text-lg font-semibold text-foreground mb-2 group-hover:text-primary transition-colors">
+                    <h4 className="text-sm font-medium text-center text-foreground leading-tight">
                       {service.title}
-                    </h3>
-                    <p className="text-sm text-muted-foreground leading-relaxed">
-                      {service.description}
-                    </p>
-                  </div>
-                  
-                  {/* CTA */}
-                  <div className="mt-4">
-                    <EnhancedButton 
-                      variant="ghost" 
-                      size="sm" 
-                      className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-all"
-                      asChild
-                    >
-                      <Link to={service.href}>
-                        Learn More
-                      </Link>
-                    </EnhancedButton>
+                    </h4>
                   </div>
                 </div>
-              </Card>
-            );
-          })}
-        </div>
-        
-        {/* View All Services CTA */}
-        <div className="text-center mt-12">
-          <EnhancedButton variant="outline" size="lg" asChild>
-            <Link to="/services">
-              View All Services & Procedures
-            </Link>
-          </EnhancedButton>
+              );
+            })}
+          </div>
         </div>
       </div>
     </section>
