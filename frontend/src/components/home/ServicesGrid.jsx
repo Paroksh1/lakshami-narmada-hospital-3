@@ -14,7 +14,7 @@ import {
   Thermometer,
   Activity,
   Bone,
-  Lungs,
+  Wind,
   Zap
 } from 'lucide-react';
 
