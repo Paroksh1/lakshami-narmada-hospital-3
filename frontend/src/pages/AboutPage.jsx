@@ -156,58 +156,84 @@ const AboutPage = () => {
       {/* Mission & Vision Section */}
       <section className="section-padding bg-muted/30">
         <div className="container mx-auto">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="grid lg:grid-cols-2 gap-16 items-start">
             {/* Mission */}
             <div className="text-center">
-              <div className="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-6">
-                <img 
-                  src="https://images.unsplash.com/photo-1595464144526-5fb181b74625" 
-                  alt="Mission" 
-                  className="w-12 h-12 rounded-full object-cover"
-                />
+              <div className="relative mb-8">
+                <div className="w-32 h-32 rounded-full overflow-hidden shadow-xl mx-auto mb-6">
+                  <img 
+                    src="https://images.unsplash.com/photo-1595464144526-5fb181b74625" 
+                    alt="Our Mission - Advanced Medical Equipment" 
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2">
+                  <div className="bg-primary text-primary-foreground px-4 py-2 rounded-full text-sm font-semibold">
+                    Mission
+                  </div>
+                </div>
               </div>
-              <h3 className="text-2xl font-bold text-foreground mb-4">Mission</h3>
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                To provide a productive life through Quality, Innovation and Excellence in Pediatric Care
-              </p>
+              <h3 className="text-3xl font-bold text-foreground mb-6">Our Mission</h3>
+              <div className="bg-white rounded-2xl p-8 shadow-lg border border-primary/10">
+                <p className="text-xl font-semibold text-primary leading-relaxed">
+                  To provide a productive life through Quality, Innovation and Excellence in Pediatric Care
+                </p>
+              </div>
             </div>
 
             {/* Vision */}
             <div className="text-center">
-              <h3 className="text-2xl font-bold text-foreground mb-6">Vision</h3>
-              <div className="space-y-2 text-left max-w-md mx-auto">
-                <div className="flex items-center gap-4">
-                  <span className="text-muted-foreground">Provide</span>
-                  <span className="font-bold text-foreground">**H**olistic pediatric healthcare</span>
+              <h3 className="text-3xl font-bold text-foreground mb-8">Our Vision</h3>
+              <div className="bg-white rounded-2xl p-8 shadow-lg border border-secondary/10 space-y-4">
+                <div className="grid grid-cols-1 gap-4 text-left">
+                  <div className="flex items-center justify-between py-3 border-b border-muted">
+                    <span className="text-muted-foreground font-medium">Provide</span>
+                    <span className="font-bold text-foreground text-lg">
+                      <span className="text-primary text-2xl">H</span>olistic pediatric healthcare
+                    </span>
+                  </div>
+                  <div className="flex items-center justify-between py-3 border-b border-muted">
+                    <span className="text-muted-foreground font-medium">Strive for</span>
+                    <span className="font-bold text-foreground text-lg">
+                      <span className="text-primary text-2xl">E</span>xcellence
+                    </span>
+                  </div>
+                  <div className="flex items-center justify-between py-3 border-b border-muted">
+                    <span className="text-muted-foreground font-medium">Make healthcare</span>
+                    <span className="font-bold text-foreground text-lg">
+                      <span className="text-primary text-2xl">A</span>ffordable
+                    </span>
+                  </div>
+                  <div className="flex items-center justify-between py-3 border-b border-muted">
+                    <span className="text-muted-foreground font-medium">Achieve</span>
+                    <span className="font-bold text-foreground text-lg">
+                      <span className="text-primary text-2xl">L</span>eadership
+                    </span>
+                  </div>
+                  <div className="flex items-center justify-between py-3 border-b border-muted">
+                    <span className="text-muted-foreground font-medium">Maintain</span>
+                    <span className="font-bold text-foreground text-lg">
+                      <span className="text-primary text-2xl">T</span>ransparency
+                    </span>
+                  </div>
+                  <div className="flex items-center justify-between py-3 border-b border-muted">
+                    <span className="text-muted-foreground font-medium">Serve with</span>
+                    <span className="font-bold text-foreground text-lg">
+                      <span className="text-primary text-2xl">H</span>onesty and Humanity
+                    </span>
+                  </div>
                 </div>
-                <div className="flex items-center gap-4">
-                  <span className="text-muted-foreground">Strive for</span>
-                  <span className="font-bold text-foreground">**E**xcellence</span>
-                </div>
-                <div className="flex items-center gap-4">
-                  <span className="text-muted-foreground">Make healthcare</span>
-                  <span className="font-bold text-foreground">**A**ffordable</span>
-                </div>
-                <div className="flex items-center gap-4">
-                  <span className="text-muted-foreground">Achieve</span>
-                  <span className="font-bold text-foreground">**L**eadership</span>
-                </div>
-                <div className="flex items-center gap-4">
-                  <span className="text-muted-foreground">Maintain</span>
-                  <span className="font-bold text-foreground">**T**ransparency</span>
-                </div>
-                <div className="flex items-center gap-4">
-                  <span className="text-muted-foreground">Serve with</span>
-                  <span className="font-bold text-foreground">**H**onesty and Humanity</span>
-                </div>
-                <div className="text-center mt-4">
-                  <span className="text-muted-foreground">and thus we will make a</span>
-                  <div className="text-2xl font-bold text-primary mt-2">
-                    <div>**W**</div>
-                    <div>**O**</div>
-                    <div>**R**ld of Difference</div>
-                    <div>**L**</div>
-                    <div>**D**</div>
+                
+                <div className="text-center mt-8 pt-6 border-t border-primary/20">
+                  <p className="text-muted-foreground mb-4 font-medium">and thus we will make a</p>
+                  <div className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+                    <div className="text-4xl font-bold leading-tight">
+                      <span className="block">W</span>
+                      <span className="block">O</span>
+                      <span className="block text-2xl">R<span className="text-foreground">ld of</span> Difference</span>
+                      <span className="block">L</span>
+                      <span className="block">D</span>
+                    </div>
                   </div>
                 </div>
               </div>
