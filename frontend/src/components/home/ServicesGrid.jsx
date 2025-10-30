@@ -140,13 +140,12 @@ const ServicesGrid = () => {
                   return (
                     <div
                       key={index}
-                      className={`relative cursor-pointer transition-all duration-700 ${
+                      className={`relative cursor-pointer ${
                         isActive 
                           ? 'z-10' 
                           : 'opacity-70'
                       }`}
                       onClick={() => setActiveService(index)}
-                      onMouseEnter={() => setActiveService(index)}
                     >
                       <div className={`relative overflow-hidden rounded-3xl p-6 transition-all duration-700 ${
                         isActive 
