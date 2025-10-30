@@ -26,6 +26,47 @@ const DoctorsPage = () => {
       languages: ['Hindi', 'English'],
       availability: 'Tue, Thu, Sat',
       freeConsult: true
+    },
+    {
+      name: 'Dr. Rajesh Gupta',
+      specialty: 'General Pediatrics',
+      experience: '18+ years',
+      qualifications: 'MBBS, MD Pediatrics',
+      image: 'https://images.unsplash.com/photo-1582750433449-648ed127bb54',
+      languages: ['Hindi', 'English', 'Gujarati'],
+      availability: 'Mon-Sat',
+      freeConsult: true,
+      popular: true
+    },
+    {
+      name: 'Dr. Meera Patel',
+      specialty: 'Pediatric Surgery',
+      experience: '12+ years',
+      qualifications: 'MS, MCh Pediatric Surgery',
+      image: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2',
+      languages: ['Hindi', 'English'],
+      availability: 'Mon, Wed, Fri',
+      freeConsult: true
+    },
+    {
+      name: 'Dr. Amit Singh',
+      specialty: 'Neonatology',
+      experience: '16+ years',
+      qualifications: 'MD, DM Neonatology',
+      image: 'https://images.unsplash.com/photo-1612349317150-e413f6a5b16d',
+      languages: ['Hindi', 'English'],
+      availability: '24x7 On-call',
+      freeConsult: true
+    },
+    {
+      name: 'Dr. Kavita Agarwal',
+      specialty: 'Pediatric Ophthalmology',
+      experience: '14+ years',
+      qualifications: 'MS Ophthalmology',
+      image: 'https://images.unsplash.com/photo-1594824804732-ca58f6047ba2',
+      languages: ['Hindi', 'English'],
+      availability: 'Tue, Thu, Sat',
+      freeConsult: true
     }
   ];
   
