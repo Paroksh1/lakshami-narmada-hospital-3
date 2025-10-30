@@ -103,7 +103,7 @@ const ServicesPage = () => {
     {
       title: 'Pediatric Pulmonology',
       description: 'Respiratory care including asthma management and lung disease treatment',
-      icon: Lungs,
+      icon: Wind,
       department: 'pulmonology',
       ageGroup: 'all',
       conditions: ['Asthma', 'Pneumonia', 'Chronic cough', 'Sleep disorders'],
