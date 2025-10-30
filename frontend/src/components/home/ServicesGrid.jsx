@@ -174,10 +174,8 @@ const ServicesGrid = () => {
                             </div>
                           </div>
                           
-                          <div className={`${
-                            isActive ? 'translate-x-0 opacity-100' : 'translate-x-4 opacity-0'
-                          }`}>
-                            <ArrowRight className="h-5 w-5 text-white" />
+                          <div className="translate-x-0 opacity-100">
+                            <ArrowRight className="h-5 w-5 text-primary" />
                           </div>
                         </div>
                       </div>
