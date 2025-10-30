@@ -245,129 +245,123 @@ const ServicesPage = () => {
             </p>
           </div>
           
-          {/* Revolutionary Services Layout */}
-          <div className="space-y-8">
+          {/* Professional Services Layout */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filteredServices.map((service, index) => {
               const Icon = service.icon;
-              const isEven = index % 2 === 0;
+              
+              // Real medical images for each service
+              const serviceImages = {
+                'Pediatric Cardiology': 'https://images.unsplash.com/photo-1606206873764-fd15e242df52?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Nzh8MHwxfHNlYXJjaHwxfHxtZWRpY2FsJTIwZXF1aXBtZW50fGVufDB8fHx8MTc2MTgzNzkxOXww&ixlib=rb-4.1.0&q=85',
+                'Pediatric Neurology': 'https://images.unsplash.com/photo-1595464144526-5fb181b74625?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Nzh8MHwxfHNlYXJjaHwyfHxtZWRpY2FsJTIwZXF1aXBtZW50fGVufDB8fHx8MTc2MTgzNzkxOXww&ixlib=rb-4.1.0&q=85',
+                'General Pediatrics': 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDN8MHwxfHNlYXJjaHwyfHxob3NwaXRhbHxlbnwwfHx8fDE3NjE4Mzc5MjR8MA&ixlib=rb-4.1.0&q=85',
+                '24×7 Emergency Care': 'https://images.unsplash.com/photo-1516549655169-df83a0774514?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Nzh8MHwxfHNlYXJjaHwzfHxtZWRpY2FsJTIwZXF1aXBtZW50fGVufDB8fHx8MTc2MTgzNzkxOXww&ixlib=rb-4.1.0&q=85',
+                'Neonatal Care (NICU)': 'https://images.unsplash.com/photo-1551076805-e1869033e561?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Nzh8MHwxfHNlYXJjaHw0fHxtZWRpY2FsJTIwZXF1aXBtZW50fGVufDB8fHx8MTc2MTgzNzkxOXww&ixlib=rb-4.1.0&q=85',
+                'Vaccination Services': 'https://images.pexels.com/photos/3845129/pexels-photo-3845129.jpeg',
+                'Pediatric Surgery': 'https://images.unsplash.com/photo-1512678080530-7760d81faba6?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDN8MHwxfHNlYXJjaHwxfHxob3NwaXRhbHxlbnwwfHx8fDE3NjE4Mzc5MjR8MA&ixlib=rb-4.1.0&q=85',
+                'Pediatric Orthopedics': 'https://images.unsplash.com/photo-1538108149393-fbbd81895907?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDN8MHwxfHNlYXJjaHw0fHxob3NwaXRhbHxlbnwwfHx8fDE3NjE4Mzc5MjR8MA&ixlib=rb-4.1.0&q=85',
+                'Pediatric Pulmonology': 'https://images.pexels.com/photos/236380/pexels-photo-236380.jpeg',
+                'Pediatric ICU': 'https://images.unsplash.com/photo-1516574187841-cb9cc2ca948b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDN8MHwxfHNlYXJjaHwzfHxob3NwaXRhbHxlbnwwfHx8fDE3NjE4Mzc5MjR8MA&ixlib=rb-4.1.0&q=85',
+                'Fever Clinic': 'https://images.pexels.com/photos/287237/pexels-photo-287237.jpeg',
+                'Pediatric Ophthalmology': 'https://images.unsplash.com/photo-1595464144526-5fb181b74625?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Nzh8MHwxfHNlYXJjaHwyfHxtZWRpY2FsJTIwZXF1aXBtZW50fGVufDB8fHx8MTc2MTgzNzkxOXww&ixlib=rb-4.1.0&q=85'
+              };
               
               return (
-                <div key={index} className={`group relative overflow-hidden rounded-3xl bg-gradient-to-br ${
-                  service.emergency 
-                    ? 'from-accent/10 via-background to-accent/5 border-2 border-accent/20' 
-                    : service.featured
-                    ? 'from-primary/10 via-background to-primary/5 border-2 border-primary/20'
-                    : 'from-muted/50 via-background to-muted/20 border border-border/50'
-                } hover:shadow-2xl transition-all duration-500 hover:scale-[1.02] cursor-pointer`}
-                onClick={() => window.location.href = service.href}>
-                  
-                  {/* Background Pattern */}
-                  <div className="absolute inset-0 opacity-5">
-                    <div className={`absolute ${isEven ? 'top-0 right-0' : 'bottom-0 left-0'} w-64 h-64 rounded-full blur-3xl ${
-                      service.emergency ? 'bg-accent' : service.featured ? 'bg-primary' : 'bg-secondary'
-                    }`}></div>
-                  </div>
-                  
-                  <div className={`grid lg:grid-cols-12 gap-8 p-8 lg:p-12 items-center ${
-                    isEven ? '' : 'lg:grid-flow-col-dense'
-                  }`}>
+                <div key={index} className="group">
+                  <div className={`relative overflow-hidden rounded-2xl bg-background border transition-all duration-300 ${
+                    service.emergency 
+                      ? 'border-accent/30 hover:border-accent/60 hover:shadow-xl hover:shadow-accent/20'
+                      : 'border-border hover:border-primary/40 hover:shadow-xl hover:shadow-primary/20'
+                  } cursor-pointer`}
+                  onClick={() => window.location.href = service.href}>
                     
-                    {/* Icon & Visual Side */}
-                    <div className={`lg:col-span-4 ${isEven ? '' : 'lg:col-start-9'}`}>
-                      <div className="relative">
-                        {/* Main Icon */}
-                        <div className={`w-32 h-32 rounded-3xl flex items-center justify-center mb-6 ${
+                    {/* Professional Service Image */}
+                    <div className="relative h-48 overflow-hidden">
+                      <img 
+                        src={serviceImages[service.title] || serviceImages['General Pediatrics']} 
+                        alt={service.title}
+                        className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
+                      
+                      {/* Service Icon */}
+                      <div className="absolute top-4 left-4">
+                        <div className={`w-12 h-12 rounded-xl flex items-center justify-center backdrop-blur-sm border ${
                           service.emergency 
-                            ? 'bg-gradient-to-br from-accent to-accent/80 text-accent-foreground' 
+                            ? 'bg-accent/90 text-accent-foreground border-accent'
                             : service.featured
-                            ? 'bg-gradient-to-br from-primary to-primary/80 text-primary-foreground'
-                            : 'bg-gradient-to-br from-secondary to-secondary/80 text-secondary-foreground'
-                        } group-hover:scale-110 transition-transform duration-500 shadow-lg`}>
-                          <Icon className="h-16 w-16" />
+                            ? 'bg-primary/90 text-primary-foreground border-primary'
+                            : 'bg-background/90 text-foreground border-border'
+                        }`}>
+                          <Icon className="h-6 w-6" />
                         </div>
-                        
-                        {/* Badges */}
-                        <div className="flex flex-wrap gap-2">
-                          {service.featured && (
-                            <div className="px-3 py-1 rounded-full bg-primary text-primary-foreground text-xs font-medium">
-                              Featured Service
-                            </div>
-                          )}
-                          {service.popular && (
-                            <div className="px-3 py-1 rounded-full bg-secondary text-secondary-foreground text-xs font-medium">
-                              Most Popular
-                            </div>
-                          )}
-                          {service.emergency && (
-                            <div className="px-3 py-1 rounded-full bg-accent text-accent-foreground text-xs font-medium animate-pulse">
-                              24×7 Available
-                            </div>
-                          )}
-                        </div>
+                      </div>
+                      
+                      {/* Status Badges */}
+                      <div className="absolute top-4 right-4 flex flex-col gap-2">
+                        {service.featured && (
+                          <div className="px-3 py-1 rounded-full bg-primary text-primary-foreground text-xs font-semibold backdrop-blur-sm">
+                            Featured
+                          </div>
+                        )}
+                        {service.popular && (
+                          <div className="px-3 py-1 rounded-full bg-secondary text-secondary-foreground text-xs font-semibold backdrop-blur-sm">
+                            Popular
+                          </div>
+                        )}
+                        {service.emergency && (
+                          <div className="px-3 py-1 rounded-full bg-accent text-accent-foreground text-xs font-semibold animate-pulse backdrop-blur-sm">
+                            24×7 Available
+                          </div>
+                        )}
+                      </div>
+
+                      {/* Service Title Overlay */}
+                      <div className="absolute bottom-4 left-4 right-4">
+                        <h3 className="text-xl font-bold text-white mb-2">
+                          {service.title}
+                        </h3>
                       </div>
                     </div>
                     
-                    {/* Content Side */}
-                    <div className={`lg:col-span-8 ${isEven ? '' : 'lg:col-start-1 lg:row-start-1'}`}>
-                      <div className="space-y-6">
-                        {/* Title & Description */}
-                        <div className="space-y-4">
-                          <h3 className="text-3xl lg:text-4xl font-bold text-foreground group-hover:text-primary transition-colors duration-300">
-                            {service.title}
-                          </h3>
-                          <p className="text-lg text-muted-foreground leading-relaxed">
-                            {service.description}
-                          </p>
-                        </div>
-                        
-                        {/* Conditions Grid */}
-                        <div className="space-y-3">
-                          <h4 className="text-sm font-semibold text-foreground uppercase tracking-wide">
-                            Common Conditions We Treat
-                          </h4>
-                          <div className="grid grid-cols-2 lg:grid-cols-3 gap-3">
-                            {service.conditions.slice(0, 6).map((condition, i) => (
-                              <div key={i} className="flex items-center gap-2 text-sm text-muted-foreground">
-                                <div className="w-2 h-2 rounded-full bg-primary"></div>
-                                {condition}
-                              </div>
-                            ))}
-                            {service.conditions.length > 6 && (
-                              <div className="flex items-center gap-2 text-sm font-medium text-primary">
-                                <div className="w-2 h-2 rounded-full bg-primary"></div>
-                                +{service.conditions.length - 6} more conditions
-                              </div>
-                            )}
-                          </div>
-                        </div>
-                        
-                        {/* Action Buttons */}
-                        <div className="flex flex-col sm:flex-row gap-4 pt-4">
-                          <EnhancedButton 
-                            size="lg" 
-                            className="group/btn"
-                            asChild
-                          >
-                            <Link to={service.href} className="flex items-center gap-3">
-                              Learn More & Book Consultation
-                              <Icon className="h-5 w-5 group-hover/btn:translate-x-1 transition-transform" />
-                            </Link>
-                          </EnhancedButton>
-                          
-                          {service.emergency && (
-                            <EnhancedButton 
-                              variant="emergency" 
-                              size="lg"
-                              asChild
-                            >
-                              <a href="tel:+91" className="flex items-center gap-3">
-                                <Phone className="h-5 w-5" />
-                                Call Emergency Now
-                              </a>
-                            </EnhancedButton>
+                    {/* Content */}
+                    <div className="p-6">
+                      <p className="text-muted-foreground leading-relaxed mb-4 line-clamp-3">
+                        {service.description}
+                      </p>
+                      
+                      {/* Key Conditions */}
+                      <div className="space-y-3 mb-6">
+                        <h4 className="text-sm font-semibold text-foreground">
+                          Key Conditions Treated:
+                        </h4>
+                        <div className="space-y-1">
+                          {service.conditions.slice(0, 3).map((condition, i) => (
+                            <div key={i} className="flex items-center gap-2 text-sm text-muted-foreground">
+                              <div className="w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0"></div>
+                              <span>{condition}</span>
+                            </div>
+                          ))}
+                          {service.conditions.length > 3 && (
+                            <div className="text-xs text-primary font-medium">
+                              +{service.conditions.length - 3} more conditions
+                            </div>
                           )}
                         </div>
                       </div>
+                      
+                      {/* CTA */}
+                      <EnhancedButton 
+                        variant={service.emergency ? "emergency" : "primary"}
+                        size="sm" 
+                        className="w-full"
+                        asChild
+                      >
+                        <Link to={service.href} className="flex items-center justify-center gap-2">
+                          Learn More & Book
+                          <ArrowRight className="h-4 w-4" />
+                        </Link>
+                      </EnhancedButton>
                     </div>
                   </div>
                 </div>
