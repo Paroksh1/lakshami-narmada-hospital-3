@@ -149,13 +149,7 @@ const ServicesGrid = () => {
                     >
                       <div className="relative overflow-hidden rounded-3xl p-6 bg-muted/50 shadow-md">
                         
-                        {/* Animated Background Pattern */}
-                        {isActive && (
-                          <div className="absolute inset-0 opacity-10">
-                            <div className="absolute top-0 right-0 w-32 h-32 rounded-full bg-white/20 -translate-y-16 translate-x-16"></div>
-                            <div className="absolute bottom-0 left-0 w-24 h-24 rounded-full bg-white/10 translate-y-12 -translate-x-12"></div>
-                          </div>
-                        )}
+                        {/* Background Pattern Removed */}
                         
                         <div className="relative flex items-center gap-4">
                           <div className="w-16 h-16 rounded-2xl flex items-center justify-center bg-primary/10 text-primary">
