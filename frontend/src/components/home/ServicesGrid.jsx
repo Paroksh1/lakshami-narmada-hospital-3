@@ -235,35 +235,6 @@ const ServicesGrid = () => {
           </div>
         </div>
         
-        {/* Additional Services Showcase */}
-        <div className="border-t border-border pt-16">
-          <div className="text-center mb-12">
-            <h3 className="text-2xl font-bold text-foreground mb-4">
-              Complete Range of Specialties
-            </h3>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              Beyond our core services, we offer comprehensive care across all pediatric specialties
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
-            {additionalServices.map((service, index) => {
-              const Icon = service.icon;
-              return (
-                <div key={index} className="group">
-                  <div className="flex flex-col items-center gap-3 p-6 rounded-2xl border border-border/50 hover:border-primary/50 hover:bg-primary/5 transition-all duration-300 cursor-pointer">
-                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary/10 to-secondary/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                      <Icon className="h-6 w-6 text-primary" />
-                    </div>
-                    <h4 className="text-sm font-medium text-center text-foreground leading-tight">
-                      {service.title}
-                    </h4>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
       </div>
     </section>
   );
