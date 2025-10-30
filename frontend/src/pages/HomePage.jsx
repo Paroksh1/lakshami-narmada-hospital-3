@@ -16,13 +16,7 @@ import {
   MapPin, 
   Clock, 
   Phone, 
-  Shield, 
-  Award, 
   Calendar,
-  BookOpen,
-  Video,
-  FileText,
-  ArrowRight,
   Building,
   Navigation
 } from 'lucide-react';
