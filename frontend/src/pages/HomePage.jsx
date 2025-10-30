@@ -22,36 +22,6 @@ import {
 } from 'lucide-react';
 
 const HomePage = () => {
-  const knowledgeHighlights = [
-    {
-      title: 'Newborn Care Guide',
-      type: 'Article',
-      summary: 'Essential tips for caring for your newborn in the first few weeks',
-      href: '/knowledge-hub/newborn-care-guide',
-      icon: FileText
-    },
-    {
-      title: 'Vaccination Schedule',
-      type: 'Video',
-      summary: 'Complete guide to childhood immunizations and timing',
-      href: '/knowledge-hub/vaccination-schedule',
-      icon: Video
-    },
-    {
-      title: 'Fever Management',
-      type: 'Guide',
-      summary: 'When to worry and how to manage fever in children',
-      href: '/knowledge-hub/fever-management',
-      icon: BookOpen
-    },
-    {
-      title: 'Emergency First Aid',
-      type: 'Video',
-      summary: 'Essential first aid techniques every parent should know',
-      href: '/knowledge-hub/emergency-first-aid',
-      icon: Video
-    }
-  ];
   
   const locations = [
     {
