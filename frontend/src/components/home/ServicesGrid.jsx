@@ -163,19 +163,13 @@ const ServicesGrid = () => {
                           </div>
                           
                           <div className="flex-1">
-                            <h3 className={`text-xl font-bold mb-1 ${
-                              isActive ? 'text-white' : 'text-foreground'
-                            }`}>
+                            <h3 className="text-xl font-bold mb-1 text-foreground">
                               {service.title}
                             </h3>
-                            <p className={`text-sm mb-2 ${
-                              isActive ? 'text-white/90' : 'text-muted-foreground'
-                            }`}>
+                            <p className="text-sm mb-2 text-muted-foreground">
                               {service.description}
                             </p>
-                            <div className={`text-xs font-medium ${
-                              isActive ? 'text-white/80' : 'text-primary'
-                            }`}>
+                            <div className="text-xs font-medium text-primary">
                               {service.stats}
                             </div>
                           </div>
