@@ -158,11 +158,7 @@ const ServicesGrid = () => {
                         )}
                         
                         <div className="relative flex items-center gap-4">
-                          <div className={`w-16 h-16 rounded-2xl flex items-center justify-center ${
-                            isActive 
-                              ? 'bg-white/20 text-white' 
-                              : 'bg-primary/10 text-primary'
-                          }`}>
+                          <div className="w-16 h-16 rounded-2xl flex items-center justify-center bg-primary/10 text-primary">
                             <Icon className="h-8 w-8" />
                           </div>
                           
