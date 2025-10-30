@@ -162,39 +162,7 @@ const HomePage = () => {
         </div>
       </section>
       
-      {/* Insurance & Cashless */}
-      <section className="section-padding bg-gradient-trust">
-        <div className="container mx-auto text-center">
-          <div className="max-w-3xl mx-auto">
-            <Shield className="h-12 w-12 text-primary mx-auto mb-4" />
-            <h2 className="text-3xl font-bold text-foreground mb-4">
-              Insurance & Cashless Treatment
-            </h2>
-            <p className="text-lg text-muted-foreground mb-8">
-              We accept all major insurance providers and offer cashless treatment for covered services. Our dedicated billing team ensures a smooth, hassle-free experience for your family.
-            </p>
-            <div className="flex flex-wrap justify-center gap-4 mb-8">
-              <Badge variant="outline" className="px-4 py-2">
-                Mediclaim Coverage
-              </Badge>
-              <Badge variant="outline" className="px-4 py-2">
-                Corporate TPA
-              </Badge>
-              <Badge variant="outline" className="px-4 py-2">
-                CGHS Empanelled
-              </Badge>
-              <Badge variant="outline" className="px-4 py-2">
-                Ayushman Bharat
-              </Badge>
-            </div>
-            <EnhancedButton variant="primary" size="lg" asChild>
-              <Link to="/patient-care">
-                Learn More About Coverage
-              </Link>
-            </EnhancedButton>
-          </div>
-        </div>
-      </section>
+      
       
       {/* FAQ Section */}
       <section className="section-padding">
