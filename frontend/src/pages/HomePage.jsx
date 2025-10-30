@@ -9,7 +9,6 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/
 import HeroSection from '@/components/home/HeroSection';
 import ServicesGrid from '@/components/home/ServicesGrid';
 import FounderSection from '@/components/home/FounderSection';
-import ImpactMetrics from '@/components/home/ImpactMetrics';
 import TestimonialsSection from '@/components/home/TestimonialsSection';
 
 // Import Icons
