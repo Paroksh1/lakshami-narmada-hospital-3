@@ -128,11 +128,23 @@ const DoctorsPage = () => {
                     </div>
                   </div>
                   
-                  {doctor.freeConsult && (
-                    <Badge className="mt-3 bg-secondary text-secondary-foreground">
-                      Free First Consult
-                    </Badge>
-                  )}
+                  <div className="flex flex-wrap gap-2 mt-3">
+                    {doctor.freeConsult && (
+                      <Badge className="bg-secondary text-secondary-foreground">
+                        Free First Consult
+                      </Badge>
+                    )}
+                    {doctor.featured && (
+                      <Badge className="bg-primary text-primary-foreground">
+                        Featured
+                      </Badge>
+                    )}
+                    {doctor.popular && (
+                      <Badge variant="outline">
+                        Popular
+                      </Badge>
+                    )}
+                  </div>
                   
                   <EnhancedButton variant="primary" size="sm" className="w-full mt-4">
                     <Calendar className="h-4 w-4 mr-2" />
