@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 
 // UI
@@ -26,7 +27,122 @@ import {
   Calendar,
   Building,
   Navigation,
+  Stethoscope,
+  HeartPulse,
+  Syringe,
+  Baby,
+  Ambulance,
+  Brain,
+  Bone,
+  Activity,
+  ShieldCheck,
+  Users,
+  Star,
+  CheckCircle2,
 } from "lucide-react";
+
+// SEO Component
+const SEO = () => (
+  <Helmet>
+    <title>Lakshmi Narmada Children Hospital | Best Pediatric & Neonatal Care in Faridabad</title>
+    <meta name="description" content="Lakshmi Narmada Children Hospital in Sector 89, Faridabad offers expert pediatric care, neonatal ICU, vaccination, and child surgery services with a compassionate team of doctors." />
+    <meta name="keywords" content="children hospital faridabad, pediatric care, child specialist, neonatal ICU, vaccination, pediatric surgery, 24/7 emergency hospital, child healthcare, Faridabad hospital, best pediatric hospital Haryana" />
+    <meta property="og:title" content="Lakshmi Narmada Children Hospital | Best Pediatric & Neonatal Care in Faridabad" />
+    <meta property="og:description" content="Lakshmi Narmada Children Hospital in Sector 89, Faridabad offers expert pediatric care, neonatal ICU, vaccination, and child surgery services with a compassionate team of doctors." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://lakshminarmadahospital.com" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <script type="application/ld+json">
+      {JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "MedicalClinic",
+        "name": "Lakshmi Narmada Children Hospital",
+        "description": "Best Pediatric & Neonatal Care Hospital in Faridabad, Haryana",
+        "url": "https://lakshminarmadahospital.com",
+        "logo": "https://lakshminarmadahospital.com/logo.png",
+        "image": "https://lakshminarmadahospital.com/hospital-building.jpg",
+        "telephone": "+91 129 1234567",
+        "email": "info@lakshminarmadahospital.com",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Sector 89, Near BPTP Villas",
+          "addressLocality": "Faridabad",
+          "addressRegion": "Haryana",
+          "postalCode": "121002",
+          "addressCountry": "IN"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": "28.4089",
+          "longitude": "77.3178"
+        },
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday"
+            ],
+            "opens": "09:00",
+            "closes": "21:00"
+          },
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": "Sunday",
+            "opens": "09:00",
+            "closes": "14:00"
+          }
+        ],
+        "priceRange": "$$",
+        "medicalSpecialty": [
+          "Pediatrics",
+          "Neonatology",
+          "Pediatric Surgery",
+          "Pediatric Cardiology",
+          "Pediatric Neurology"
+        ],
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Medical Services",
+          "itemListElement": [
+            {
+              "@type": "OfferCatalog",
+              "name": "Pediatric Care",
+              "itemListElement": [
+                { "@type": "MedicalProcedure", "name": "Well-child visits" },
+                { "@type": "MedicalProcedure", "name": "Vaccinations" },
+                { "@type": "MedicalProcedure", "name": "Sick visits" },
+                { "@type": "MedicalProcedure", "name": "Developmental screenings" }
+              ]
+            },
+            {
+              "@type": "OfferCatalog",
+              "name": "Neonatal Care",
+              "itemListElement": [
+                { "@type": "MedicalProcedure", "name": "NICU" },
+                { "@type": "MedicalProcedure", "name": "Premature baby care" },
+                { "@type": "MedicalProcedure", "name": "Newborn screening" }
+              ]
+            },
+            {
+              "@type": "OfferCatalog",
+              "name": "Emergency Care",
+              "itemListElement": [
+                { "@type": "MedicalProcedure", "name": "24/7 Pediatric Emergency" },
+                { "@type": "MedicalProcedure", "name": "Trauma Care" },
+                { "@type": "MedicalProcedure", "name": "Critical Care" }
+              ]
+            }
+          ]
+        }
+      })}
+    </script>
+  </Helmet>
+);
 
 const HomePage = () => {
   // --- DATA ------------------------------------------------------------------

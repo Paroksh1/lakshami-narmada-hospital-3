@@ -2,23 +2,99 @@
 <html lang="en">
     <head>
         <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="theme-color" content="#000000" />
-        <meta name="description" content="A product of emergent.sh" />
-        <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
-        <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="theme-color" content="#0066cc" />
+        <meta name="description" content="Lakshmi Narmada Children Hospital in Sector 89, Faridabad offers expert pediatric care, neonatal ICU, vaccination, and child surgery services with a compassionate team of doctors." />
+        <meta name="keywords" content="children hospital faridabad, pediatric care, child specialist, neonatal ICU, vaccination, pediatric surgery, 24/7 emergency hospital, child healthcare, Faridabad hospital, best pediatric hospital Haryana" />
+        <meta name="author" content="Lakshmi Narmada Children Hospital" />
+        <meta name="robots" content="index, follow" />
+        <meta name="googlebot" content="index, follow" />
+        <meta name="revisit-after" content="7 days" />
+        <meta name="language" content="English" />
+        <meta name="geo.region" content="IN-HR" />
+        <meta name="geo.placename" content="Faridabad" />
 
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
-        <title>Lakshmi Narmada Hospital</title>
+        <!-- Canonical URL -->
+        <link rel="canonical" href="https://lakshminarmadahospital.com" />
+        
+        <!-- Favicon -->
+        <link rel="icon" type="image/x-icon" href="%PUBLIC_URL%/favicon.ico" />
+        <link rel="apple-touch-icon" sizes="180x180" href="%PUBLIC_URL%/apple-touch-icon.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="%PUBLIC_URL%/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="%PUBLIC_URL%/favicon-16x16.png" />
+        <link rel="manifest" href="%PUBLIC_URL%/site.webmanifest" />
+
+        <!-- Open Graph / Facebook -->
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://lakshminarmadahospital.com/" />
+        <meta property="og:title" content="Lakshmi Narmada Children Hospital | Best Pediatric & Neonatal Care in Faridabad" />
+        <meta property="og:description" content="Lakshmi Narmada Children Hospital in Sector 89, Faridabad offers expert pediatric care, neonatal ICU, vaccination, and child surgery services with a compassionate team of doctors." />
+        <meta property="og:image" content="https://lakshminarmadahospital.com/og-image.jpg" />
+
+        <!-- Twitter -->
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content="https://lakshminarmadahospital.com/" />
+        <meta property="twitter:title" content="Lakshmi Narmada Children Hospital | Best Pediatric & Neonatal Care in Faridabad" />
+        <meta property="twitter:description" content="Lakshmi Narmada Children Hospital in Sector 89, Faridabad offers expert pediatric care, neonatal ICU, vaccination, and child surgery services with a compassionate team of doctors." />
+        <meta property="twitter:image" content="https://lakshminarmadahospital.com/twitter-card.jpg" />
+
+        <title>Lakshmi Narmada Children Hospital | Best Pediatric & Neonatal Care in Faridabad</title>
+
+        <!-- JSON-LD Structured Data -->
+        <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "Hospital",
+          "name": "Lakshmi Narmada Children Hospital",
+          "description": "Best Pediatric & Neonatal Care Hospital in Faridabad, Haryana",
+          "url": "https://lakshminarmadahospital.com",
+          "logo": "https://lakshminarmadahospital.com/logo.png",
+          "image": "https://lakshminarmadahospital.com/hospital-building.jpg",
+          "telephone": "+91 129 1234567",
+          "email": "info@lakshminarmadahospital.com",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Sector 89",
+            "addressLocality": "Faridabad",
+            "addressRegion": "Haryana",
+            "postalCode": "121002",
+            "addressCountry": "IN"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "28.4089",
+            "longitude": "77.3178"
+          },
+          "openingHoursSpecification": [
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday"
+              ],
+              "opens": "09:00",
+              "closes": "21:00"
+            },
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": "Sunday",
+              "opens": "09:00",
+              "closes": "14:00"
+            }
+          ],
+          "priceRange": "$$",
+          "hasMap": "https://goo.gl/maps/XXXXXXXXXXXXX",
+          "sameAs": [
+            "https://www.facebook.com/lakshminarmadahospital",
+            "https://www.instagram.com/lakshminarmadahospital",
+            "https://www.linkedin.com/company/lakshmi-narmada-hospital"
+          ]
+        }
+        </script>
     </head>
     <body>
         <noscript>You need to enable JavaScript to run this app.</noscript>
@@ -33,7 +109,6 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
-        <div id="root"></div>
         <script>
             !(function (t, e) {
                 var o, n, p, r;
@@ -49,9 +124,9 @@
                                         [e].concat(
                                             Array.prototype.slice.call(
                                                 arguments,
-                                                0,
-                                            ),
-                                        ),
+                                                0
+                                            )
+                                        )
                                     );
                                 });
                         }
@@ -62,11 +137,11 @@
                             (p.src =
                                 s.api_host.replace(
                                     ".i.posthog.com",
-                                    "-assets.i.posthog.com",
+                                    "-assets.i.posthog.com"
                                 ) + "/static/array.js"),
                             (r =
                                 t.getElementsByTagName(
-                                    "script",
+                                    "script"
                                 )[0]).parentNode.insertBefore(p, r);
                         var u = e;
                         for (
@@ -85,7 +160,7 @@
                                 },
                                 o =
                                     "init me ws ys ps bs capture je Di ks register register_once register_for_session unregister unregister_for_session Ps getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSurveysLoaded onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey canRenderSurveyAsync identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty Es $s createPersonProfile Is opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing clear_opt_in_out_capturing Ss debug xs getPageViewId captureTraceFeedback captureTraceMetric".split(
-                                        " ",
+                                        " "
                                     ),
                                 n = 0;
                             n < o.length;
