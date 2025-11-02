@@ -81,41 +81,40 @@ const ServicesGrid = () => {
   ];
   
   return (
-    <section className="section-padding overflow-hidden">
-      <div className="container mx-auto">
-        {/* Revolutionary Header Design */}
-        <div className="relative mb-20">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+    <section className="section-padding overflow-hidden px-4 sm:px-6 lg:px-8">
+      <div className="w-full max-w-[1200px] mx-auto">
+        <div className="relative mb-12 md:mb-16 lg:mb-20">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
             {/* Left Side - Content */}
-            <div className={`space-y-8 ${isVisible ? 'animate-fade-in' : 'opacity-0'}`}>
-              <div className="space-y-4">
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium">
-                  <Plus className="h-4 w-4" />
+            <div className={`space-y-6 md:space-y-8 ${isVisible ? 'animate-fade-in' : 'opacity-0'}`}>
+              <div className="space-y-3 md:space-y-4">
+                <div className="inline-flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full bg-primary/10 text-primary text-sm font-medium">
+                  <Plus className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
                   Comprehensive Care
                 </div>
-                <h2 className="text-5xl lg:text-6xl font-bold text-foreground leading-tight">
+                <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground leading-tight">
                   Pediatric
                   <span className="block bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
                     Excellence
                   </span>
                 </h2>
-                <p className="text-xl text-muted-foreground leading-relaxed max-w-lg">
+                <p className="text-base sm:text-lg md:text-xl text-muted-foreground leading-relaxed max-w-lg">
                   From routine check-ups to life-saving procedures, we provide world-class healthcare solutions for children at every stage of development.
                 </p>
               </div>
               
               {/* Specialties Overview */}
-              <div className="flex gap-8">
+              <div className="flex flex-wrap gap-6 sm:gap-8">
                 {specialties.map((specialty, index) => {
                   const Icon = specialty.icon;
                   return (
                     <div key={index} className="flex items-center gap-3">
-                      <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center">
-                        <Icon className="h-6 w-6 text-primary" />
+                      <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center">
+                        <Icon className="h-5 w-5 sm:h-6 sm:w-6 text-primary" />
                       </div>
                       <div>
-                        <div className="text-2xl font-bold text-foreground">{specialty.count}</div>
-                        <div className="text-sm text-muted-foreground">{specialty.title}</div>
+                        <div className="text-xl sm:text-2xl font-bold text-foreground">{specialty.count}</div>
+                        <div className="text-xs sm:text-sm text-muted-foreground">{specialty.title}</div>
                       </div>
                     </div>
                   );
@@ -125,14 +124,14 @@ const ServicesGrid = () => {
               <EnhancedButton size="xl" className="group" asChild>
                 <Link to="/services" className="inline-flex items-center gap-3">
                   View All Services
-                  <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                  <ArrowRight className="h-4 w-4 sm:h-5 sm:w-5 group-hover:translate-x-1 transition-transform" />
                 </Link>
               </EnhancedButton>
             </div>
             
             {/* Right Side - Interactive Service Showcase */}
-            <div className="relative">
-              <div className="space-y-4">
+            <div className="relative mt-8 lg:mt-0">
+              <div className="space-y-3 sm:space-y-4">
                 {mainServices.map((service, index) => {
                   const Icon = service.icon;
                   const isActive = index === activeService;
@@ -140,36 +139,31 @@ const ServicesGrid = () => {
                   return (
                     <div
                       key={index}
-                      className={`relative cursor-pointer ${
-                        isActive 
-                          ? 'z-10' 
-                          : 'opacity-70'
+                      className={`relative cursor-pointer transition-opacity duration-300 ${
+                        isActive ? 'z-10' : 'opacity-70 hover:opacity-90'
                       }`}
                       onClick={() => setActiveService(index)}
                     >
-                      <div className="relative overflow-hidden rounded-3xl p-6 bg-muted/50 shadow-md">
-                        
-                        {/* Background Pattern Removed */}
-                        
-                        <div className="relative flex items-center gap-4">
-                          <div className="w-16 h-16 rounded-2xl flex items-center justify-center bg-primary/10 text-primary">
-                            <Icon className="h-8 w-8" />
+                      <div className="relative overflow-hidden rounded-2xl sm:rounded-3xl p-4 sm:p-6 bg-muted/50 shadow-sm sm:shadow-md hover:shadow-lg transition-shadow">
+                        <div className="relative flex items-start sm:items-center gap-3 sm:gap-4">
+                          <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl flex-shrink-0 flex items-center justify-center bg-primary/10 text-primary">
+                            <Icon className="h-5 w-5 sm:h-8 sm:w-8" />
                           </div>
                           
-                          <div className="flex-1">
-                            <h3 className="text-xl font-bold mb-1 text-foreground">
+                          <div className="flex-1 min-w-0">
+                            <h3 className="text-base sm:text-lg md:text-xl font-bold mb-1 text-foreground line-clamp-1">
                               {service.title}
                             </h3>
-                            <p className="text-sm mb-2 text-muted-foreground">
+                            <p className="text-xs sm:text-sm text-muted-foreground line-clamp-2 sm:line-clamp-3">
                               {service.description}
                             </p>
-                            <div className="text-xs font-medium text-primary">
+                            <div className="text-xs font-medium text-primary mt-1.5">
                               {service.stats}
                             </div>
                           </div>
                           
-                          <div className="translate-x-0 opacity-100">
-                            <ArrowRight className="h-5 w-5 text-primary" />
+                          <div className="flex-shrink-0 ml-2 sm:ml-4">
+                            <ArrowRight className="h-4 w-4 sm:h-5 sm:w-5 text-primary" />
                           </div>
                         </div>
                       </div>
@@ -184,18 +178,18 @@ const ServicesGrid = () => {
                   <button
                     key={index}
                     onClick={() => setActiveService(index)}
-                    className={`w-2 h-2 rounded-full ${
+                    className={`h-2 rounded-full transition-all duration-300 ${
                       index === activeService 
                         ? 'bg-primary w-6' 
-                        : 'bg-muted-foreground/30'
+                        : 'bg-muted-foreground/30 w-2'
                     }`}
+                    aria-label={`Go to service ${index + 1}`}
                   />
                 ))}
               </div>
             </div>
           </div>
         </div>
-        
       </div>
     </section>
   );
