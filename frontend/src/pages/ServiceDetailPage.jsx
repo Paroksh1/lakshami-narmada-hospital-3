@@ -229,24 +229,8 @@ const ServiceDetailPage = () => {
             <Card className="card-medical sticky top-8">
               <div className="p-6 space-y-4">
                 <h3 className="text-xl font-semibold text-foreground mb-4">
-                  Book Consultation
+                  Service Details
                 </h3>
-                
-                <EnhancedButton variant="primary" size="lg" className="w-full" asChild>
-                  <Link to="/contact" className="flex items-center justify-center gap-2">
-                    <Calendar className="h-5 w-5" />
-                    Book Free First Consult
-                  </Link>
-                </EnhancedButton>
-                
-                <EnhancedButton variant="emergency" size="lg" className="w-full" asChild>
-                  <a href="tel:+91" className="flex items-center justify-center gap-2">
-                    <Phone className="h-5 w-5" />
-                    Call 24×7 Emergency
-                  </a>
-                </EnhancedButton>
-                
-                <Separator />
                 
                 <div className="space-y-3">
                   <div>

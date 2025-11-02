@@ -3,6 +3,8 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Background pattern temporarily removed for debugging */
+
 body {
     margin: 0;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",

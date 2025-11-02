@@ -1,158 +1,232 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { EnhancedButton } from '@/components/ui/enhanced-button';
-import { Card } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+import React from "react";
+import { Link } from "react-router-dom";
 
-// Import Home Components
-import HeroSection from '@/components/home/HeroSection';
-import ServicesGrid from '@/components/home/ServicesGrid';
-import FounderSection from '@/components/home/FounderSection';
-import TestimonialsSection from '@/components/home/TestimonialsSection';
+// UI
+import { EnhancedButton } from "@/components/ui/enhanced-button";
+import { Card } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
-// Import Icons
-import { 
-  MapPin, 
-  Clock, 
-  Phone, 
+// Home Sections
+import HeroSection from "@/components/home/HeroSection";
+import ServicesGrid from "@/components/home/ServicesGrid";
+import FounderSection from "@/components/home/FounderSection";
+import TestimonialsSection from "@/components/home/TestimonialsSection";
+
+// Icons
+import {
+  MapPin,
+  Clock,
+  Phone,
   Calendar,
   Building,
-  Navigation
-} from 'lucide-react';
+  Navigation,
+} from "lucide-react";
 
 const HomePage = () => {
-  
+  // --- DATA ------------------------------------------------------------------
   const locations = [
     {
-      name: 'Main Hospital - Central',
-      address: '123 Medical Center Drive, Central District',
-      hours: 'Open 24/7 for Emergency',
-      phone: '+91-XXXXXXXXX',
-      image: 'https://images.unsplash.com/flagged/photo-1551049215-23fd6d2ac3f1'
+      name: "Faridabad Medical Centre",
+      address: "Plot NO 458, Sector 21B, Faridabad, Haryana 121001",
+      hours: "Open 24/7 for Emergency",
+      phone: "+91-8586860125",
+      image: "/images/fms.png",
+      mapLink:
+        "https://www.google.com/maps/search/?api=1&query=Faridabad+Medical+Centre+Plot+458+Sector+21B+Faridabad",
     },
     {
-      name: 'Branch Hospital - North',
-      address: '456 Healthcare Avenue, North District',
-      hours: 'OPD: 8:00 AM - 8:00 PM | Emergency: 24/7',
-      phone: '+91-XXXXXXXXY',
-      image: 'https://images.unsplash.com/photo-1578496781379-7dcfb995293d'
-    }
+      name: "Laxmi Narmada Children's Hospital",
+      address: "Sector 89, Near BPTP Villas, Faridabad, Haryana",
+      hours: "OPD: 8:00 AM - 8:00 PM | Emergency: 24/7",
+      phone: "+91-8586860125",
+      image: "/images/laxmi-narmada-hospital.png",
+      mapLink:
+        "https://www.google.com/maps/search/?api=1&query=Laxmi+Narmada+Children+Hospital+Sector+89+Faridabad",
+    },
   ];
-  
+
   const faqData = [
     {
       question: "Is the first consultation really free?",
-      answer: "Yes! We offer free first consultations for new patients for standard OPD visits (both in-clinic and video consultations). This excludes emergency services, procedures, tests, and follow-up visits. T&Cs apply - valid for one child per family with proper ID verification."
+      answer:
+        "Yes! We offer free first consultations for new patients for standard OPD visits (both in-clinic and video consultations). This excludes emergency services, procedures, tests, and follow-up visits. T&Cs apply - valid for one child per family with proper ID verification.",
     },
     {
       question: "Is emergency care available 24/7?",
-      answer: "Absolutely! Both our hospitals have fully equipped pediatric emergency departments that operate round-the-clock, 365 days a year. Our emergency teams are specially trained in pediatric care and equipped to handle all types of medical emergencies."
+      answer:
+        "Absolutely! Both our hospitals have fully equipped pediatric emergency departments that operate round-the-clock, 365 days a year. Our emergency teams are specially trained in pediatric care and equipped to handle all types of medical emergencies.",
     },
     {
       question: "Do you accept insurance and provide cashless treatment?",
-      answer: "Yes, we accept most major insurance providers and TPAs. We offer cashless treatment for covered services. Our billing team can help verify your coverage and guide you through the process."
+      answer:
+        "Yes, we accept most major insurance providers and TPAs. We offer cashless treatment for covered services. Our billing team can help verify your coverage and guide you through the process.",
     },
     {
       question: "What age groups do you treat?",
-      answer: "We provide comprehensive care from birth to 18 years of age. Our services include neonatal care for premature babies, pediatric care for children, and adolescent medicine for teenagers."
+      answer:
+        "We provide comprehensive care from birth to 18 years of age. Our services include neonatal care for premature babies, pediatric care for children, and adolescent medicine for teenagers.",
     },
     {
       question: "Can I book appointments online?",
-      answer: "Yes! You can book appointments through our website or by calling our OPD booking number. We also offer video consultations for follow-ups and non-emergency consultations."
+      answer:
+        "Yes! You can book appointments through our website or by calling our OPD booking number. We also offer video consultations for follow-ups and non-emergency consultations.",
     },
     {
       question: "What should I bring for the first visit?",
-      answer: "Please bring a valid ID proof, any previous medical records, current medications list, insurance card (if applicable), and for the free consultation - mention it's your first visit with us."
-    }
+      answer:
+        "Please bring a valid ID proof, any previous medical records, current medications list, insurance card (if applicable), and for the free consultation - mention it's your first visit with us.",
+    },
   ];
-  
+
+  // --- VIEW ------------------------------------------------------------------
   return (
-    <div className="min-h-screen">
-      {/* Hero Section */}
+    <div className="min-h-screen bg-background selection:bg-primary/15 selection:text-primary">
+      {/* HERO */}
       <HeroSection />
-      
-      {/* Services Grid */}
-      <ServicesGrid />
-      
-      {/* Founder Section */}
-      <FounderSection />
-      
-      {/* Testimonials */}
-      <TestimonialsSection />
-      
-      {/* Locations */}
-      <section className="section-padding">
-        <div className="container mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
+
+      {/* SERVICES */}
+      <section aria-labelledby="services-heading">
+        <ServicesGrid />
+      </section>
+
+      {/* FOUNDER */}
+      <section aria-labelledby="founder-heading">
+        <FounderSection />
+      </section>
+
+      {/* TESTIMONIALS */}
+      <section aria-labelledby="testimonials-heading">
+        <TestimonialsSection />
+      </section>
+
+      {/* LOCATIONS */}
+      <section
+        className="section-padding"
+        aria-labelledby="locations-heading"
+        id="locations"
+      >
+        <div className="mx-auto w-full max-w-screen-xl px-4 sm:px-6 lg:px-8">
+          <div className="mb-10 text-center sm:mb-12">
+            <h2
+              id="locations-heading"
+              className="mb-3 font-bold leading-tight text-foreground text-[clamp(24px,4.2vw,36px)] sm:text-4xl"
+            >
               Our Hospital Locations
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Two convenient locations serving families across the region with comprehensive pediatric care.
+            <p className="mx-auto max-w-[68ch] text-[clamp(15px,2.2vw,18px)] text-muted-foreground">
+              Two convenient locations serving families across the region with
+              comprehensive pediatric care.
             </p>
           </div>
-          
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+
+          <div
+            className="
+              grid grid-cols-1 gap-6 sm:gap-7 md:gap-8
+              lg:grid-cols-2
+            "
+          >
             {locations.map((location, index) => (
-              <Card key={index} className="card-medical overflow-hidden">
-                <div className="aspect-video relative overflow-hidden">
-                  <img 
-                    src={location.image} 
+              <Card
+                key={index}
+                className="
+                  group relative flex h-full flex-col overflow-hidden
+                  rounded-2xl border border-border bg-card shadow-sm
+                  transition-transform duration-200 ease-out hover:-translate-y-0.5
+                  focus-within:ring-2 focus-within:ring-primary/50
+                "
+              >
+                {/* Media */}
+                <div className="relative aspect-[16/9] w-full overflow-hidden">
+                  <img
+                    src={location.image}
                     alt={location.name}
-                    className="w-full h-full object-cover"
+                    loading="lazy"
+                    decoding="async"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 560px"
+                    className="h-full w-full object-cover object-[center_30%] scale-110 transition-transform duration-500 ease-out group-hover:scale-[1.12] motion-reduce:transition-none"
                   />
-                  <div className="absolute top-4 left-4">
-                    <Badge className="bg-primary text-primary-foreground">
-                      <Building className="h-3 w-3 mr-1" />
+                  <div className="absolute left-3 top-3 sm:left-4 sm:top-4">
+                    <Badge className="flex items-center bg-primary/95 text-primary-foreground backdrop-blur">
+                      <Building className="mr-1 h-3.5 w-3.5" />
                       Hospital {index + 1}
                     </Badge>
                   </div>
                 </div>
-                
-                <div className="p-6 space-y-4">
-                  <h3 className="text-xl font-semibold text-foreground">
+
+                {/* Content */}
+                <div className="flex flex-1 flex-col p-5 sm:p-6">
+                  <h3 className="text-[clamp(18px,2.6vw,20px)] font-semibold text-foreground">
                     {location.name}
                   </h3>
-                  
-                  <div className="space-y-3">
-                    <div className="flex items-start gap-2 text-sm">
-                      <MapPin className="h-4 w-4 text-primary mt-1 flex-shrink-0" />
-                      <p className="text-muted-foreground">
-                        {location.address}
-                      </p>
+
+                  <div className="mt-3 space-y-3 text-sm sm:text-[15px]">
+                    <div className="flex items-start gap-2">
+                      <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                      <p className="text-muted-foreground">{location.address}</p>
                     </div>
-                    
-                    <div className="flex items-start gap-2 text-sm">
-                      <Clock className="h-4 w-4 text-success mt-1 flex-shrink-0" />
-                      <p className="text-muted-foreground">
-                        {location.hours}
-                      </p>
+
+                    <div className="flex items-start gap-2">
+                      <Clock className="mt-0.5 h-4 w-4 shrink-0 text-green-600 dark:text-emerald-400" />
+                      <p className="text-muted-foreground">{location.hours}</p>
                     </div>
-                    
-                    <div className="flex items-start gap-2 text-sm">
-                      <Phone className="h-4 w-4 text-accent mt-1 flex-shrink-0" />
-                      <a 
+
+                    <div className="flex items-start gap-2">
+                      <Phone className="mt-0.5 h-4 w-4 shrink-0 text-blue-600 dark:text-blue-400" />
+                      <a
                         href={`tel:${location.phone}`}
-                        className="text-accent hover:underline font-medium"
+                        className="font-medium text-blue-700 underline-offset-4 hover:underline dark:text-blue-400"
                       >
                         {location.phone}
                       </a>
                     </div>
                   </div>
-                  
-                  <div className="flex gap-2 pt-2">
-                    <EnhancedButton variant="outline" size="sm" className="flex-1" asChild>
-                      <a href="#" className="flex items-center justify-center gap-2">
+
+                  {/* Actions */}
+                  <div className="mt-5 flex flex-col gap-2.5 sm:flex-row sm:gap-3">
+                    <EnhancedButton
+                      variant="outline"
+                      size="sm"
+                      className="w-full sm:flex-1"
+                      asChild
+                    >
+                      <a
+                        href={location.mapLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center justify-center gap-2"
+                        aria-label={`Directions to ${location.name}`}
+                      >
                         <Navigation className="h-4 w-4" />
                         Directions
                       </a>
                     </EnhancedButton>
-                    <EnhancedButton variant="primary" size="sm" className="flex-1" asChild>
-                      <Link to="/contact" className="flex items-center justify-center gap-2">
+
+                    <EnhancedButton
+                      variant="primary"
+                      size="sm"
+                      className="
+                        w-full sm:flex-1
+                        bg-gradient-to-r from-blue-600 to-blue-700
+                        hover:from-blue-700 hover:to-blue-800
+                      "
+                      asChild
+                    >
+                      <a
+                        href="https://play.google.com/store/apps/details?id=com.docterz.connect.faridabadmedicalcenter&hl=en_IN"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center justify-center gap-2"
+                        aria-label={`Book a visit at ${location.name}`}
+                      >
                         <Calendar className="h-4 w-4" />
                         Book Visit
-                      </Link>
+                      </a>
                     </EnhancedButton>
                   </div>
                 </div>
@@ -161,79 +235,51 @@ const HomePage = () => {
           </div>
         </div>
       </section>
-      
-      
-      
-      {/* FAQ Section */}
-      <section className="section-padding">
-        <div className="container mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
+
+      {/* FAQ */}
+      <section
+        className="section-padding"
+        aria-labelledby="faq-heading"
+        id="faq"
+      >
+        <div className="mx-auto w-full max-w-screen-lg px-4 sm:px-6 lg:px-8">
+          <div className="mb-8 text-center sm:mb-10">
+            <h2
+              id="faq-heading"
+              className="mb-3 font-bold leading-tight text-foreground text-[clamp(24px,4.2vw,36px)] sm:text-4xl"
+            >
               Frequently Asked Questions
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Quick answers to common questions about our services, policies, and procedures.
+            <p className="mx-auto max-w-[68ch] text-[clamp(15px,2.2vw,18px)] text-muted-foreground">
+              Quick answers to common questions about our services, policies,
+              and procedures.
             </p>
           </div>
-          
-          <div className="max-w-3xl mx-auto">
+
+          <div className="mx-auto max-w-3xl">
             <Accordion type="single" collapsible className="space-y-4">
               {faqData.map((faq, index) => (
-                <AccordionItem 
-                  key={index} 
+                <AccordionItem
+                  key={index}
                   value={`item-${index}`}
-                  className="border border-border rounded-lg px-6 data-[state=open]:bg-muted/20"
+                  className="
+                    rounded-lg border border-border
+                    px-4 sm:px-6
+                    data-[state=open]:bg-muted/20
+                    focus-within:outline-none focus-within:ring-2 focus-within:ring-primary/40
+                  "
                 >
-                  <AccordionTrigger className="text-left hover:no-underline py-4">
+                  <AccordionTrigger className="py-4 text-left hover:no-underline">
                     <span className="font-semibold text-foreground">
                       {faq.question}
                     </span>
                   </AccordionTrigger>
-                  <AccordionContent className="pb-4 text-muted-foreground leading-relaxed">
+                  <AccordionContent className="pb-4 leading-relaxed text-muted-foreground">
                     {faq.answer}
                   </AccordionContent>
                 </AccordionItem>
               ))}
             </Accordion>
-          </div>
-        </div>
-      </section>
-      
-      {/* Final CTA */}
-      <section className="section-padding bg-primary text-primary-foreground">
-        <div className="container mx-auto text-center">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-              Ready to Give Your Child the Best Care?
-            </h2>
-            <p className="text-lg text-primary-foreground/90 mb-8">
-              Join thousands of families who trust us with their children's health. Book your free first consultation today or call our 24×7 emergency line.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <EnhancedButton 
-                variant="secondary" 
-                size="xl" 
-                className="bg-background text-foreground hover:bg-background/90"
-                asChild
-              >
-                <Link to="/contact" className="flex items-center gap-3">
-                  <Calendar className="h-5 w-5" />
-                  Book Free First Consult
-                </Link>
-              </EnhancedButton>
-              
-              <EnhancedButton 
-                variant="outline" 
-                size="xl" 
-                className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary"
-                asChild
-              >
-                <a href="tel:+91" className="flex items-center gap-3">
-                  <Phone className="h-5 w-5" />
-                  Call 24×7 Emergency
-                </a>
-              </EnhancedButton>
-            </div>
           </div>
         </div>
       </section>

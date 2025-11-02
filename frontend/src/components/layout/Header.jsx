@@ -4,6 +4,7 @@ import { EnhancedButton } from '@/components/ui/enhanced-button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { Badge } from '@/components/ui/badge';
 import { Menu, Phone, Calendar, X } from 'lucide-react';
+import { PromotionalStrip } from './PromotionalStrip';
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -13,7 +14,6 @@ const Header = () => {
     { name: 'Home', href: '/' },
     { name: 'Services & Procedures', href: '/services' },
     { name: 'Doctors', href: '/doctors' },
-    { name: 'Patient Care', href: '/patient-care' },
     { name: 'Knowledge Hub', href: '/knowledge-hub' },
     { name: 'About Us', href: '/about' },
     { name: 'Locations', href: '/locations' },
@@ -23,6 +23,9 @@ const Header = () => {
   
   return (
     <header className="sticky top-0 z-50 w-full bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b border-border">
+      {/* Promotional Strip */}
+      <PromotionalStrip />
+      
       {/* Emergency Banner */}
       <div className="bg-accent text-accent-foreground px-4 py-2 text-center text-sm font-medium">
         <span className="inline-flex items-center gap-2">
@@ -70,18 +73,29 @@ const Header = () => {
           </nav>
           
           {/* Desktop CTAs */}
-          <div className="hidden md:flex items-center space-x-4">
+          <div className="hidden md:flex items-center space-x-3">
             <EnhancedButton variant="outline" size="sm" asChild>
-              <a href="tel:+91" className="flex items-center gap-2">
+              <a href="tel:+918586860125" className="flex items-center gap-2">
                 <Phone className="h-4 w-4" />
                 <span className="hidden lg:inline">24×7 Emergency</span>
               </a>
             </EnhancedButton>
-            <EnhancedButton variant="primary" size="sm" asChild>
-              <Link to="/contact" className="flex items-center gap-2">
+            <EnhancedButton 
+              variant="primary" 
+              size="sm" 
+              asChild
+              className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800"
+            >
+              <a 
+                href="https://play.google.com/store/apps/details?id=com.docterz.connect.faridabadmedicalcenter&hl=en_IN"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2"
+              >
                 <Calendar className="h-4 w-4" />
-                Book Free Consult
-              </Link>
+                <span className="hidden lg:inline">Book Free Consult</span>
+                <span className="lg:hidden">Book Now</span>
+              </a>
             </EnhancedButton>
           </div>
           
@@ -117,16 +131,25 @@ const Header = () => {
                 
                 <div className="mt-auto space-y-4 pt-6">
                   <EnhancedButton variant="outline" className="w-full" asChild>
-                    <a href="tel:+91" className="flex items-center justify-center gap-2">
+                    <a href="tel:+918586860125" className="flex items-center justify-center gap-2">
                       <Phone className="h-4 w-4" />
                       24×7 Emergency
                     </a>
                   </EnhancedButton>
-                  <EnhancedButton variant="primary" className="w-full" asChild>
-                    <Link to="/contact" className="flex items-center justify-center gap-2">
+                  <EnhancedButton 
+                    variant="primary" 
+                    className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800"
+                    asChild
+                  >
+                    <a 
+                      href="https://play.google.com/store/apps/details?id=com.docterz.connect.faridabadmedicalcenter&hl=en_IN"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center justify-center gap-2"
+                    >
                       <Calendar className="h-4 w-4" />
                       Book Free Consult
-                    </Link>
+                    </a>
                   </EnhancedButton>
                 </div>
               </div>
